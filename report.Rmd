@@ -1,7 +1,7 @@
 ---
 title: "Assignment Bioinformatics Basics Report"
-author: "Taylor Falk"
-date: "11/17/2021"
+author: "Abhishek Kumar"
+date: "02/20/2026"
 output: html_document
 ---
 
@@ -233,5 +233,17 @@ this plot.
 ```{r boxplot from long format data using ggplot2, echo=FALSE}
 library(ggplot2)
 
+ggplot(long_format_data, aes(x = hgnc_symbol, y = value, fill = gene_set)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("good" = "#00BCD4", "bad" = "#F08080")) +
+  labs(
+    title = "These genes were picked randomly, don't expect to see a pattern",
+    x = "Gene Set",
+    y = "Expression Value"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
 
 ```
